@@ -1,4 +1,22 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-  devtools: { enabled: true }
-})
+
+import{resolve} from 'path'
+
+export default defineNuxtConfig({  
+ devtools: { enabled: true },
+  alias: {
+    "@": resolve(__dirname, "src"),
+
+  },
+css: [
+  "~/assets/main.css",
+],
+postcss: {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+},
+
+
+  });
