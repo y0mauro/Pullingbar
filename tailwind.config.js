@@ -13,14 +13,15 @@ module.exports = {
 
     extend: {
       colors: {
-        primary: '#4782B4',
-        secondary: '#804080',
+        primary: '#06CB7B',
+        secondary: '#0E172A',
+        dark: '#1F293B',
         azure: '#2a9d8f',
         golden: '#e9c46a',
-        offwhite: '#FAF9F6',
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        DMSans: ["DM Sans", "sans-serif"],
       },
     },
   },

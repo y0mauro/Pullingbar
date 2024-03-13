@@ -1,7 +1,6 @@
 <template>
-  <div class="font-inter bg-offwhite">
+  <div>
     <NuxtLayout>
-      <Header />
       <NuxtPage />
     </NuxtLayout>
   </div>

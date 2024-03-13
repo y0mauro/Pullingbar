@@ -1,27 +1,29 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import{resolve} from 'path'
+import { resolve } from "path";
 
-export default defineNuxtConfig({  
- devtools: { enabled: true },
+export default defineNuxtConfig({
+  devtools: { enabled: true },
   alias: {
-    "@": resolve(__dirname, "src"),
-
+    assets: "/<rootDir>/assets",
   },
-css: [
-  "~/assets/main.css",
-],
+  css: ["~/assets/main.css"],
   modules: [
-    ['@nuxtjs/google-fonts', {families: {Inter: [100, 200, 300, 400, 500, 600, 700, 800, 900]}}],
-
+    [
+      "@nuxtjs/google-fonts",
+      {
+        families: {
+          Inter: [100, 200, 300, 400, 500, 600, 700, 800, 900],
+          "DM+Sans": [400, 500, 600, 700],
+        },
+      },
+    ],
   ],
 
-postcss: {
-  plugins: {
-    tailwindcss: {},
-    autoprefixer: {},
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
-},
-
-
-  });
+});
