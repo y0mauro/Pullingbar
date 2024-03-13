@@ -11,6 +11,11 @@ export default defineNuxtConfig({
 css: [
   "~/assets/main.css",
 ],
+  modules: [
+    ['@nuxtjs/google-fonts', {families: {Inter: [100, 200, 300, 400, 500, 600, 700, 800, 900]}}],
+
+  ],
+
 postcss: {
   plugins: {
     tailwindcss: {},
