@@ -11,7 +11,7 @@ const password = ref("");
   <div>
     <form
       @submit.prevent="submit"
-      class="bg-dark2 border-graydark border px-20 py-10 w-4/12 mx-auto my-5 rounded-xl"
+      class="flex flex-col space-y-2 w-[600px] p-10 bg-dark rounded-xl mx-auto"
     >
       <div class="mb-4">
         <label for="email" class="block text-white text-sm font-bold mb-2"
@@ -41,7 +41,7 @@ const password = ref("");
       </div>
       <div class="flex items-center justify-end">
         <button
-          class="bg-primary px-5 py-2 rounded-xl hover:bg-primary2 font-bold"
+          class="bg-primary hover:bg-primary-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Sign Up
         </button>

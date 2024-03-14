@@ -1,4 +1,5 @@
 <template>
+  <p class="text-3xl text-slate-100 font-semibold mb-12">Your Workspaces</p>
   <div class="space-y-4">
     <div class="flex flex-col">
       <!-- Workspaces list in a grid -->
@@ -7,38 +8,60 @@
         <div v-for="workspace in workspaces" :key="workspace.id" class="mb-2">
           <WorkspaceItem :workspace="workspace" />
         </div>
+
         <button
           v-if="!showForm"
           @click="showForm = !showForm"
-          class="self-start p-2 text-white font-bold rounded mt-4"
+          class="grid place-items-center gap-1 border border-graydark rounded-xl mb-4 p-5"
         >
-          +
-          <span class="hover:underline underline-offset-4">Add Workspace</span>
+          +Add Workspace
         </button>
       </div>
+      <transition name="fade">
 
-      <form
+      <div
         v-if="showForm"
-        @submit.prevent="addWorkspace"
-        class="flex flex-col space-y-2 p-4 w-[300px] rounded mt-4"
+        class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
       >
-        <input
-          v-model="newWorkspace.name"
-          placeholder="Workspace Name"
-          class="p-2 bg-graydark"
-        />
-        <textarea
-          v-model="newWorkspace.description"
-          placeholder="Workspace Description"
-          class="bg-graydark p-2"
-        ></textarea>
-        <button
-          type="submit"
-          class="bg-primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+        <!-- Popup Form -->
+        <form
+          @submit.prevent="addWorkspace"
+          class="flex flex-col space-y-2 w-[600px] p-10 bg-dark rounded-xl"
         >
-          Create Workspace
-        </button>
-      </form>
+        
+        <p class="mb-4 text-2xl font-semibold"> Create a new Workspace</p>
+          <input
+            v-model="newWorkspace.name"
+            placeholder="Name"
+          class="shadow appearance-none bg-graydark text-slate-200 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+          />
+          <input
+            v-model="newWorkspace.description"
+            optional 
+            placeholder=" Description"
+          class="shadow appearance-none bg-graydark text-slate-200 rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
+
+          ></input>
+          <div>
+            
+          </div>
+          <button
+            type="submit"
+            class="bg-primary hover:bg-green-700 text-white font-semibold py-2 px-4 rounded"
+          >
+            Save
+          </button>
+          <button
+            type="button"
+            @click="showForm = false"
+            class="mt-2 text-center text-red-500"
+          >
+            Cancel
+          </button>
+        </form>
+      </div>
+            </transition >
+
     </div>
   </div>
 </template>
@@ -46,7 +69,7 @@
 <script setup>
 import { ref } from "vue";
 import WorkspaceItem from "~/components/WorkspaceItem.vue";
-
+import { v4 as uuidv4 } from 'uuid'; 
 const workspaces = ref([]);
 const showForm = ref(false);
 const newWorkspace = ref({
@@ -54,15 +77,16 @@ const newWorkspace = ref({
   description: "",
 });
 
+
 const addWorkspace = () => {
-  if (newWorkspace.value.name.trim() && newWorkspace.value.description.trim()) {
+  if (newWorkspace.value.name.trim() && (newWorkspace.value.description.trim() || true)) { 
     const workspaceToAdd = {
       ...newWorkspace.value,
-      id: Math.random().toString(),
+      id: uuidv4(), 
     };
     workspaces.value.push(workspaceToAdd);
-    newWorkspace.value = { name: "", description: "" }; // Reset the form
-    showForm.value = false; // Hide form after adding
+    newWorkspace.value = { name: '', description: '' }; 
+    showForm.value = false; 
   }
 };
 </script>
