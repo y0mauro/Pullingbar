@@ -9,11 +9,11 @@ const route = useRoute();
     <div class="flex justify-between w-full items-center">
       <NuxtLink class="flex-1" to="/"> <Logo /></NuxtLink>
       <!-- Header Links Container -->
-      <div class="gap-4 justify-center flex-1 hidden md:flex">
+      <div class="gap-4 justify-end flex-1 hidden md:flex">
         <NuxtLink
           to="/about"
           :class="[
-            'block text-center underline-offset-4 hover:underline',
+            'block text-center underline-offset-4 hover:text-primary',
             route.path === '/about' ? 'text-primary' : '',
           ]"
           >About</NuxtLink
@@ -22,13 +22,12 @@ const route = useRoute();
         <NuxtLink
           to="/join"
           :class="[
-            'block text-center underline-offset-4 hover:underline',
+            'block text-center underline-offset-4 hover:text-primary',
             route.path === '/join' ? 'text-primary' : '',
           ]"
           >Join</NuxtLink
         >
       </div>
-      <div class="flex-1 hidden md:flex"></div>
     </div>
   </div>
 </template>
