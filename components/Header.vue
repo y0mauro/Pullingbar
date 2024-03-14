@@ -1,3 +1,7 @@
+<script setup>
+const route = useRoute();
+</script>
+
 <template>
   <div
     class="py-4 border-b border-slate-900/10 flex items-center lg:px-8 dark:border-slate-300/10 mx-4 lg:mx-0"
@@ -7,14 +11,20 @@
       <!-- Header Links Container -->
       <div class="gap-4 justify-center flex-1 hidden md:flex">
         <NuxtLink
-          to="/tutorial"
-          class="block text-center underline-offset-4 hover:underline"
-          >Tutorial</NuxtLink
+          to="/about"
+          :class="[
+            'block text-center underline-offset-4 hover:underline',
+            route.path === '/about' ? 'text-primary' : '',
+          ]"
+          >About</NuxtLink
         >
 
         <NuxtLink
           to="/join"
-          class="block text-center underline-offset-4 hover:underline"
+          :class="[
+            'block text-center underline-offset-4 hover:underline',
+            route.path === '/join' ? 'text-primary' : '',
+          ]"
           >Join</NuxtLink
         >
       </div>

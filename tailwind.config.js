@@ -13,9 +13,11 @@ module.exports = {
 
     extend: {
       colors: {
-        primary: '#06CB7B',
-        secondary: '#0E172A',
-        dark: '#1F293B',
+        primary: '#41B883',
+        primary2: '#06CB7B',
+        dark: '#1C1C1C',
+        dark2: '#161616',
+        graydark: "#343434",
         azure: '#2a9d8f',
         golden: '#e9c46a',
       },
