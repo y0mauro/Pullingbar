@@ -7,8 +7,18 @@ export default defineNuxtConfig({
   alias: {
     assets: "/<rootDir>/assets",
   },
+  supabase: {
+    redirect: false,
+  },
+  runtimeConfig: {
+    public: {
+      DB_KEY: process.env.SUPABASE_KEY,
+      DB_URL: process.env.SUPABASE_URL,
+    },
+  },
   css: ["~/assets/main.css"],
   modules: [
+    "@nuxtjs/supabase",
     [
       "@nuxtjs/google-fonts",
       {
